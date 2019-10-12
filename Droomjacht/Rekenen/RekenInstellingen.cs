@@ -6,18 +6,24 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Droomjacht.User;
 
 namespace Droomjacht.Reken
 {
     public partial class RekenInstellingen : Droomjacht.Menu
     {
-        string gebruikersnaam = "";
-
-        public RekenInstellingen(string inputGebruiker)
+        public RekenInstellingen()
         {
             InitializeComponent();
-            gebruikersnaam = inputGebruiker;
         }
+
+        public RekenInstellingen(Instellingen user) : base(user)
+        {
+            InitializeComponent();
+            userInstellingen = user;
+        }
+
+        private Instellingen userInstellingen;
 
         public void Ophogen(ref TextBox textbox)
         {
@@ -47,7 +53,7 @@ namespace Droomjacht.Reken
                 string checkSomtype = textBox4.Text;
                 if (tekenArray.Any(checkTeken.Equals) && somtypeArray.Any(checkSomtype.Equals))
                 {
-                    Rekenen RekenScherm = new Rekenen(gebruikersnaam);
+                    Rekenen RekenScherm = new Rekenen(userInstellingen);
                     RekenScherm.getal1Class = Int32.Parse(textBox1.Text);
                     RekenScherm.getal2Class = Int32.Parse(textBox3.Text);
                     RekenScherm.somClass = Int32.Parse(textBox5.Text);

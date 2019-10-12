@@ -2,7 +2,7 @@
 
 namespace Droomjacht.Reken
 {
-    partial class Rekenen
+    partial class Rekenen 
     {
         /// <summary>
         /// Required designer variable.

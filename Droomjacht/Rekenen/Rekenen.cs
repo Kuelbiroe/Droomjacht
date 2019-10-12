@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Droomjacht.User;
 
 namespace Droomjacht.Reken
 {
@@ -23,12 +24,14 @@ namespace Droomjacht.Reken
         int ySize = 240;
         string fileLocation = @"C:\Users\Maarten\source\repos\Droomjacht\afbeeldingen\";
 
-        public Rekenen(string inputGebruiker)
+        public Rekenen(Instellingen user) : base(user)
         {
             InitializeComponent();
-            string gebruikersnaam = inputGebruiker;
-            fileLocation = fileLocation + gebruikersnaam + "\\";
+            userInstellingen = user;
+            fileLocation = fileLocation + userInstellingen.gebruikersNaam + "\\";
         }
+
+        private Instellingen userInstellingen;
 
         public void MaakEenSom()
         {

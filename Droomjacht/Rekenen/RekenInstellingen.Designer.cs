@@ -240,7 +240,7 @@
             // RekenInstellingen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(974, 634);
+            this.ClientSize = new System.Drawing.Size(1314, 634);
             this.Controls.Add(this.StartKnop);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
