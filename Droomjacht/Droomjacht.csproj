@@ -62,11 +62,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="abc\AbcLetterScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="abc\AbcLetterScherm.Designer.cs">
+      <DependentUpon>AbcLetterScherm.cs</DependentUpon>
+    </Compile>
     <Compile Include="abc\AbcScherm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="abc\AbcScherm.Designer.cs">
       <DependentUpon>AbcScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Beginscherm\Beginscherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Beginscherm\Beginscherm.Designer.cs">
+      <DependentUpon>Beginscherm.cs</DependentUpon>
     </Compile>
     <Compile Include="Hoofdmenu\HoofdMenu.cs">
       <SubType>Form</SubType>
@@ -95,9 +107,21 @@
     <Compile Include="Rekenen\RekenInstellingen.Designer.cs">
       <DependentUpon>RekenInstellingen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rekenen\RekenScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rekenen\RekenScherm.Designer.cs">
+      <DependentUpon>RekenScherm.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\Instellingen.cs" />
+    <EmbeddedResource Include="abc\AbcLetterScherm.resx">
+      <DependentUpon>AbcLetterScherm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="abc\AbcScherm.resx">
       <DependentUpon>AbcScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Beginscherm\Beginscherm.resx">
+      <DependentUpon>Beginscherm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Hoofdmenu\HoofdMenu.resx">
       <DependentUpon>HoofdMenu.cs</DependentUpon>
@@ -120,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rekenen\RekenInstellingen.resx">
       <DependentUpon>RekenInstellingen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rekenen\RekenScherm.resx">
+      <DependentUpon>RekenScherm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -144,6 +171,10 @@
     <None Include="Resources\wolkGeel.png" />
     <None Include="Resources\knopLetter.png" />
     <None Include="Resources\regenboog.png" />
+    <None Include="Resources\eenhoorn.png" />
+    <None Include="Resources\tekstballon.png" />
+    <None Include="Resources\tekstballonAndersom.png" />
+    <None Include="Resources\Knop+.png" />
     <Content Include="Resources\wolkGrijs.png" />
     <Content Include="Resources\wolkGroen.png" />
     <None Include="Resources\wolkOranje.png" />

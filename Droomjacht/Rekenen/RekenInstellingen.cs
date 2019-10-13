@@ -62,7 +62,6 @@ namespace Droomjacht.Reken
 
                     RekenScherm.MaakEenSom();
                     RekenScherm.ShowMyImage();
-                    this.Hide();
                     RekenScherm.ShowDialog();
                     this.Close();
                 }

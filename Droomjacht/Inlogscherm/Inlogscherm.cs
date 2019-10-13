@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.IO;
 using Droomjacht.User;
+using Droomjacht.Beginscherm;
 
 namespace Droomjacht
 {
@@ -58,7 +59,12 @@ namespace Droomjacht
 
         private Instellingen LoadSettings(string gebruikersNaam)
         {
-            Instellingen user = new Instellingen(users[0]);
+            int teller = 0;
+            string gebruiker = users[teller];
+            while (!(gebruikersNaam == users[teller]))
+            { teller++;              
+            }
+            Instellingen user = new Instellingen(users[teller]);
             string userDataFile = ConfigurationManager.AppSettings[@"user_data_folder"] + gebruikersNaam + ".txt";
             StreamReader sr = new StreamReader(userDataFile);
             string data = sr.ReadLine(); 
@@ -78,28 +84,48 @@ namespace Droomjacht
 
         private void Knop0_Click(object sender, EventArgs e)
         {
-            //https://www.techcoil.com/blog/how-to-save-and-load-objects-to-and-from-file-in-c/
-            Instellingen userInstellingen = new Instellingen (users[0]);
-            userInstellingen = LoadSettings(users[0]);
-            Menu hoofdMenu = new Menu(userInstellingen);
-            this.Hide();
-            hoofdMenu.ShowDialog();
-            this.Close();
+            OpenNieuwScherm(Knop0.Text);
         }
 
         private void Knop1_Click(object sender, EventArgs e)
         {
-            Instellingen userInstellingen = new Instellingen(users[1]);
-            userInstellingen = LoadSettings(users[1]);
-            Menu hoofdMenu = new Menu(userInstellingen);
-            this.Hide();
-            hoofdMenu.ShowDialog();
-            this.Close();
+            OpenNieuwScherm(Knop1.Text);
         }
 
-        private void nieuweUserKnop_Click(object sender, EventArgs e)
+        private void Knop2_Click(object sender, EventArgs e)
         {
-            //todo
+            OpenNieuwScherm(Knop2.Text);
         }
+
+        private void Knop3_Click(object sender, EventArgs e)
+        {
+            OpenNieuwScherm(Knop3.Text);
+        }
+
+        private void Knop4_Click(object sender, EventArgs e)
+        {
+            OpenNieuwScherm(Knop4.Text);
+        }
+
+        private void Knop5_Click(object sender, EventArgs e)
+        {
+            OpenNieuwScherm(Knop5.Text);
+        }
+
+        private void OpenNieuwScherm (string user)
+        {
+            if (!(user == "+"))
+            {
+                Instellingen userInstellingen = new Instellingen(user);
+                userInstellingen = LoadSettings(user);
+                Beginscherm.Beginscherm beginScherm= new Beginscherm.Beginscherm(userInstellingen);
+                beginScherm.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                //nieuwe gebruiker nog todo
+            }
+        }        
     }
 }

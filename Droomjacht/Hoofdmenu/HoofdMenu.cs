@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Droomjacht.Hoofdmenu;
 using Droomjacht.User;
+using Droomjacht.Rekenen;
 // This is the code for your desktop app.
 // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
 
@@ -37,16 +38,14 @@ namespace Droomjacht
 
         private void RekenKnop_Click(object sender, EventArgs e)
         {
-            RekenInstellingen InstellingScherm = new RekenInstellingen(userInstellingen);
-            this.Hide();
-            InstellingScherm.ShowDialog();
+            RekenScherm rekenScherm = new RekenScherm(userInstellingen);
+            rekenScherm.ShowDialog();
             this.Close();
         }
         
         private void abcKnop_Click(object sender, EventArgs e)
         {
             AbcScherm AbcScherm = new AbcScherm(userInstellingen);
-            this.Hide();
             AbcScherm.ShowDialog();
             this.Close();
         }

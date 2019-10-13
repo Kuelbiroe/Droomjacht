@@ -46,6 +46,8 @@ namespace Droomjacht
             this.Knop0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Knop0.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Knop0.FlatAppearance.BorderSize = 0;
+            this.Knop0.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Knop0.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Knop0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Knop0.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Knop0.Location = new System.Drawing.Point(476, 177);
@@ -59,8 +61,6 @@ namespace Droomjacht
             this.Knop0.UseMnemonic = false;
             this.Knop0.UseVisualStyleBackColor = false;
             this.Knop0.Click += new System.EventHandler(this.Knop0_Click);
-            this.Knop0.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            this.Knop0.FlatAppearance.MouseDownBackColor = Color.Transparent;
             // 
             // Knop1
             // 
@@ -69,6 +69,8 @@ namespace Droomjacht
             this.Knop1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Knop1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Knop1.FlatAppearance.BorderSize = 0;
+            this.Knop1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Knop1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Knop1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Knop1.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Knop1.Location = new System.Drawing.Point(660, 264);
@@ -82,8 +84,6 @@ namespace Droomjacht
             this.Knop1.UseMnemonic = false;
             this.Knop1.UseVisualStyleBackColor = false;
             this.Knop1.Click += new System.EventHandler(this.Knop1_Click);
-            this.Knop1.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            this.Knop1.FlatAppearance.MouseDownBackColor = Color.Transparent;
             // 
             // Knop2
             // 
@@ -92,6 +92,8 @@ namespace Droomjacht
             this.Knop2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Knop2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Knop2.FlatAppearance.BorderSize = 0;
+            this.Knop2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Knop2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Knop2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Knop2.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Knop2.Location = new System.Drawing.Point(477, 359);
@@ -104,9 +106,7 @@ namespace Droomjacht
             this.Knop2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.Knop2.UseMnemonic = false;
             this.Knop2.UseVisualStyleBackColor = false;
-            this.Knop2.Click += new System.EventHandler(this.nieuweUserKnop_Click);
-            this.Knop2.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            this.Knop2.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            this.Knop2.Click += new System.EventHandler(this.Knop2_Click);
             // 
             // Knop3
             // 
@@ -115,6 +115,8 @@ namespace Droomjacht
             this.Knop3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Knop3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Knop3.FlatAppearance.BorderSize = 0;
+            this.Knop3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Knop3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Knop3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Knop3.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Knop3.Location = new System.Drawing.Point(661, 446);
@@ -127,8 +129,7 @@ namespace Droomjacht
             this.Knop3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.Knop3.UseMnemonic = false;
             this.Knop3.UseVisualStyleBackColor = false;
-            this.Knop3.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            this.Knop3.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            this.Knop3.Click += new System.EventHandler(this.Knop3_Click);
             // 
             // Knop4
             // 
@@ -137,6 +138,8 @@ namespace Droomjacht
             this.Knop4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Knop4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Knop4.FlatAppearance.BorderSize = 0;
+            this.Knop4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Knop4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Knop4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Knop4.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Knop4.Location = new System.Drawing.Point(475, 541);
@@ -149,8 +152,7 @@ namespace Droomjacht
             this.Knop4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.Knop4.UseMnemonic = false;
             this.Knop4.UseVisualStyleBackColor = false;
-            this.Knop4.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            this.Knop4.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            this.Knop4.Click += new System.EventHandler(this.Knop4_Click);
             // 
             // Knop5
             // 
@@ -159,6 +161,8 @@ namespace Droomjacht
             this.Knop5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Knop5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Knop5.FlatAppearance.BorderSize = 0;
+            this.Knop5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Knop5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Knop5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Knop5.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Knop5.Location = new System.Drawing.Point(660, 632);
@@ -171,8 +175,7 @@ namespace Droomjacht
             this.Knop5.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.Knop5.UseMnemonic = false;
             this.Knop5.UseVisualStyleBackColor = false;
-            this.Knop5.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            this.Knop5.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            this.Knop5.Click += new System.EventHandler(this.Knop5_Click);
             // 
             // Inlogscherm
             // 

@@ -73,6 +73,26 @@ namespace Droomjacht.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eenhoorn {
+            get {
+                object obj = ResourceManager.GetObject("eenhoorn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Knop_ {
+            get {
+                object obj = ResourceManager.GetObject("Knop_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap knopLetter {
             get {
                 object obj = ResourceManager.GetObject("knopLetter", resourceCulture);
@@ -86,6 +106,26 @@ namespace Droomjacht.Properties {
         internal static System.Drawing.Bitmap regenboog {
             get {
                 object obj = ResourceManager.GetObject("regenboog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tekstballon {
+            get {
+                object obj = ResourceManager.GetObject("tekstballon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tekstballonAndersom {
+            get {
+                object obj = ResourceManager.GetObject("tekstballonAndersom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
