@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 
 namespace Droomjacht.User
 {
+    /// <summary>
+    /// user settings 
+    /// </summary>
+
     public class Instellingen
     {
         public Instellingen(string gebruiker)
@@ -20,18 +18,33 @@ namespace Droomjacht.User
         public int abc1Punten;
         public int reken1Niveau;
         public int reken1Punten;
+        //used for the math game to slowly show the image, to do build this in the math game class and remove from here
         public int rekenImage=0;
+        //used for the math game to remember the image used, to do build this in the math game class and remove from here
         public string imageSpel;
+        //used for the method SpeelEvent to store the eventname that needs to be played
         public string eventSpel;
+        //to do: check if this is used and build this in the event class
         public string eventTekst;
+
+        /// <summary>
+        /// saves the settings into a data file (.txt)
+        /// </summary>
         public void SaveInstellingen()
         {
             string userName = gebruikersNaam;
             string userDataFile = ConfigurationManager.AppSettings[@"user_data_folder"] + userName + ".txt";
-            string[] lines = { @"sterPunten," + sterPunten, "abc1Niveau," + abc1Niveau, "abc1Punten," + abc1Punten, "reken1Niveau," + reken1Niveau,
-            "reken1Punten," + reken1Punten };
+            string[] lines = { @"sterPunten," + sterPunten,
+                                "abc1Niveau," + abc1Niveau,
+                                "abc1Punten," + abc1Punten,
+                                "reken1Niveau," + reken1Niveau,
+                                "reken1Punten," + reken1Punten };
             System.IO.File.WriteAllLines(userDataFile, lines);
         }
+
+        /// <summary>
+        /// check if an event needs to be played and if so, returns true, stores the eventname in eventSpel and upgrades the level
+        /// </summary>
         public bool SpeelEvent()
         {
             if(reken1Punten>25 & reken1Niveau==1)

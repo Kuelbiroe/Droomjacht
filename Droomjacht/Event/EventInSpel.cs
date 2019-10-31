@@ -1,17 +1,12 @@
 ﻿using Droomjacht.User;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Droomjacht.abc;
 
 namespace Droomjacht.Event
 {
+    /// <summary>
+    /// plays an event when the user has earned enough points
+    /// </summary>
     public partial class EventInSpel : Menu
     {
         public EventInSpel(Instellingen user) : base(user)
@@ -21,6 +16,9 @@ namespace Droomjacht.Event
             VulTekstBallon();
         }
 
+        /// <summary>
+        /// fills the text balloon of the avatar
+        /// </summary>
         private void VulTekstBallon()
         {
             switch(userInstellingen.eventSpel)
@@ -44,6 +42,11 @@ namespace Droomjacht.Event
             }            
         }
 
+        /// <summary>
+        /// goes to the new game/level when clicking on the text balloon
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tekstballon_Click(object sender, EventArgs e)
         {
             switch (userInstellingen.eventSpel)
@@ -67,7 +70,5 @@ namespace Droomjacht.Event
         }
 
         private Instellingen userInstellingen = new Instellingen("");
-
-
     }
 }

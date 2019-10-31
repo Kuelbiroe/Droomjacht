@@ -1,31 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Droomjacht.Event;
-using Droomjacht.Rekenen;
 using Droomjacht.User;
 
 namespace Droomjacht.Reken
 {
+    /// <summary>
+    /// creates a sum based on addition that per good answer shows a part of a picture
+    /// </summary>
     public partial class Rekenen : Droomjacht.Menu
     {
-        public int getal1Class;
-        public int getal2Class;
-        public int somClass;
-        public string tekenClass;
-        public string typeSomClass;
-        private Bitmap MyImage;
-        int xSize = 240;
-        int ySize = 240;
-        string fileLocation = @"C:\Users\Maarten\source\repos\Droomjacht\afbeeldingen\";
-
+        //to do: clean up code after direction change
         public Rekenen(Instellingen user) : base(user)
         {
             InitializeComponent();
@@ -74,38 +63,36 @@ namespace Droomjacht.Reken
             MaakEenSom();
             MaakPictureZichtbaar();
         }
+                
+        public int getal1Class;
+        public int getal2Class;
+        public int somClass;
+        public string tekenClass;
+        public string typeSomClass;
+        private Bitmap MyImage;
+        int xSize = 240;
+        int ySize = 240;
+        string fileLocation = @"C:\Users\Maarten\source\repos\Droomjacht\afbeeldingen\";
 
         private Instellingen userInstellingen;
 
+        //creates the numbers for a sum
         public void MaakEenSom()
         {
             Random rnd = new Random();
             int maakGetal1 = rnd.Next(0, getal1Class + 1);
-            int maakGetal2 = rnd.Next(0, getal2Class + 1);
-            switch (tekenClass)
-            {
-                case ":":
-                    maakGetal1 = rnd.Next(1, getal1Class + 1);
-                    maakGetal2 = rnd.Next(1, getal2Class + 1);
-                    while (!(maakGetal1 % maakGetal2 == 0) | maakGetal1 == 0 | maakGetal2 == 0 | maakGetal1 < maakGetal2)
-                    {
-                        maakGetal1 = rnd.Next(1, getal1Class + 1);
-                        maakGetal2 = rnd.Next(1, getal2Class + 1);
-                    }
-                    break;
-                case "-":
-                    int getal = maakGetal1;
-                    maakGetal1 = maakGetal2;
-                    maakGetal2 = getal;
-                    break;
-            }
+            int maakGetal2 = rnd.Next(0, getal2Class + 1);            
 
             textBox1.Text = Convert.ToString(maakGetal1);
             textBox2.Text = tekenClass;
             textBox3.Text = Convert.ToString(maakGetal2);
             textBox4.Text = typeSomClass;
         }
-
+        /// <summary>
+        ///checks the answer, if the answer is correct, a new sum is created, points are given for the correct answer and stored in the datafile. 
+        /// </summary>
+        /// <param name="input">answer as a string</param>
+        /// <returns></returns>
         public bool CheckDeSom(string input)
         {
             int getal;
@@ -124,8 +111,7 @@ namespace Droomjacht.Reken
                     else
                     {
                         userInstellingen.rekenImage = 0;
-                        MaakPictureZichtbaar();
-                                               
+                        MaakPictureZichtbaar();                                               
                     }
                 }
                 else
@@ -142,7 +128,6 @@ namespace Droomjacht.Reken
         }
 
         private void textBox5_KeyDown(object sender, KeyEventArgs e)
-
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -171,6 +156,11 @@ namespace Droomjacht.Reken
                 }
             }
         }
+
+        /// <summary>
+        /// shows a new picture with all the hiding boxes in front of it and returns its location 
+        /// </summary>
+        /// <returns>location of picture</returns>
         private string ToonNieuwePicture()
         {
             pictureBoxRechtsonder.Visible = true;
@@ -184,6 +174,10 @@ namespace Droomjacht.Reken
             pictureBoxMiddenboven.Visible = true;
             return ShowMyImage();
         }
+
+        /// <summary>
+        /// hides the hiding boxes in front of the picture by the parameter imageSpel from the object Instellingen.
+        /// </summary>
         private void MaakPictureZichtbaar()
         {
             switch (userInstellingen.rekenImage)
@@ -276,6 +270,10 @@ namespace Droomjacht.Reken
             }
         }
 
+        /// <summary>
+        /// shows a new picture at random and returns its location
+        /// </summary>
+        /// <returns>filelocation</returns>
         public string ShowMyImage()
         {
             // Sets up an image object to be displayed.
@@ -306,6 +304,11 @@ namespace Droomjacht.Reken
             pictureBoxVerstopt.Image = (Image)MyImage;
             return fileToDisplay;
         }
+
+        /// <summary>
+        /// shows the picture based on the input(its location)
+        /// </summary>
+        /// <param name="imageLocation">imagelocation</param>
         public void ShowMyImage(string imageLocation)
         {
             // Stretches the image to fit the pictureBox.

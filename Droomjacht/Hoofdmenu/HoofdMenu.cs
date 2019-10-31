@@ -1,26 +1,18 @@
-using Droomjacht.Reken;
 using Droomjacht.abc;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Droomjacht.Hoofdmenu;
 using Droomjacht.User;
 using Droomjacht.Rekenen;
 using Droomjacht.Event;
-// This is the code for your desktop app.
-// Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
 
 namespace Droomjacht
 {
+    /// <summary>
+    /// this is the main form used throughout the application where the menu items are located
+    /// </summary>
     public partial class Menu : Form
     {
-
         public Menu()
         {
             InitializeComponent();
@@ -74,27 +66,26 @@ namespace Droomjacht
             }
         }
 
+        //to be build
         private void groeneKnop_Click(object sender, EventArgs e)
         {
 
         }
 
+        //to be build
         private void geleKnop_Click(object sender, EventArgs e)
         {
 
         }
 
+        //to be build
         private void oranjeKnop_Click(object sender, EventArgs e)
         {
 
         }
 
+        //to be build
         private void rodeKnop_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

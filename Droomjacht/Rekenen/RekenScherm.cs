@@ -1,18 +1,11 @@
-﻿using Droomjacht.abc;
-using Droomjacht.User;
+﻿using Droomjacht.User;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Droomjacht.Rekenen;
 
 namespace Droomjacht.Rekenen
 {
+    /// <summary>
+    /// menu where all the math games can be found
+    /// </summary>
     public partial class RekenScherm : Menu
     {
         public RekenScherm() : base()
@@ -36,6 +29,10 @@ namespace Droomjacht.Rekenen
             rekenscherm.Closed += (s, args) => this.Close();
             rekenscherm.Show();
         }
+
+        /// <summary>
+        /// show only the buttons that the user has earned
+        /// </summary>
         public void ToonKnoppen()
         {
             if (userInstellingen.reken1Niveau > 0)

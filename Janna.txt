@@ -1,5 +1,5 @@
-sterPunten,0
+sterPunten,2
 abc1Niveau,1
-abc1Punten,1
+abc1Punten,3
 reken1Niveau,0
 reken1Punten,0

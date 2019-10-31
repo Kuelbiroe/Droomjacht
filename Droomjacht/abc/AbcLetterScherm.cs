@@ -2,17 +2,14 @@
 using Droomjacht.Properties;
 using Droomjacht.User;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Droomjacht.abc
 {
+    /// <summary>
+    /// letter game where the user needs to select the same letter
+    /// </summary>
     public partial class AbcLetterScherm : Menu
     {
         public AbcLetterScherm() : base()
@@ -29,6 +26,9 @@ namespace Droomjacht.abc
 
         private Instellingen userInstellingen = new Instellingen("");
 
+        /// <summary>
+        /// fill in a new letter with answers based on the users level
+        /// </summary>
         public void VulLetterVraag()
         {
             Random juisteAntwoord = new Random();
@@ -80,6 +80,11 @@ namespace Droomjacht.abc
             this.knopAntwoord3.Text = knopAntwoord3;
         }
 
+        /// <summary>
+        /// check the answer, lower or increase the points and save it to the file. Returns a bool.
+        /// </summary>
+        /// <param name="antwoord">bool correct answer</param>
+        /// <returns></returns>
         public bool ControleerAntwoord(string antwoord)
         {
             if (antwoord.ToLower() == letterWolk.Text.ToLower())
@@ -100,6 +105,11 @@ namespace Droomjacht.abc
             }
         }
 
+        /// <summary>
+        /// change the color of the cloud based on the answer
+        /// </summary>
+        /// <param name="antwoordJuist">answer</param>
+        /// <param name="knop">cloud button</param>
         public void VeranderKleurWolk(bool antwoordJuist, string knop)
         {
             if (antwoordJuist)
@@ -133,6 +143,8 @@ namespace Droomjacht.abc
                 }
             }
         }
+
+        //change the color of the clouds to grey when a new question is asked
         public void VeranderKleurWolk()
         {
             knopAntwoord1.BackgroundImage = Resources.wolkGrijs;
@@ -140,6 +152,7 @@ namespace Droomjacht.abc
             knopAntwoord3.BackgroundImage = Resources.wolkGrijs;
         }
 
+        //to do: combine the 3 answering buttons in one method to avoid duplicate code
         private void knopAntwoord1_Click(object sender, EventArgs e)
         {
             bool antwoord = ControleerAntwoord(knopAntwoord1.Text);
@@ -164,7 +177,7 @@ namespace Droomjacht.abc
                 }
             }
         }
-
+        //to do: combine the 3 answering buttons in one method to avoid duplicate code
         private void knopAntwoord2_Click(object sender, EventArgs e)
         {
             bool antwoord = ControleerAntwoord(knopAntwoord2.Text);
@@ -189,7 +202,7 @@ namespace Droomjacht.abc
                 }
             }
         }
-
+        //to do: combine the 3 answering buttons in one method to avoid duplicate code
         private void knopAntwoord3_Click(object sender, EventArgs e)
         {
             bool antwoord = ControleerAntwoord(knopAntwoord3.Text);
@@ -215,8 +228,15 @@ namespace Droomjacht.abc
             }
         }
 
+        /// <summary>
+        /// creates a random string of a certain length and a certain level.
+        /// </summary>
+        /// <param name="length">length of string</param>
+        /// <param name="niveau">gamelevel</param>
+        /// <returns></returns>
         private static string RandomString(int length, int niveau)
         {
+            //to do: bring hard coded characters to a config file
             var chars = "";
             switch (niveau)
             {

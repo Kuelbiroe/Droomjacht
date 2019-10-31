@@ -12,6 +12,9 @@ using Droomjacht.User;
 
 namespace Droomjacht.abc
 {
+    /// <summary>
+    /// starting page for all letter related games
+    /// </summary>
     public partial class AbcScherm : Droomjacht.Menu
     {
         public AbcScherm() : base()
@@ -35,6 +38,10 @@ namespace Droomjacht.abc
             scherm.Closed += (s, args) => this.Close();
             scherm.Show();
         }
+
+        /// <summary>
+        /// method to show the buttons of the games that the user has access to
+        /// </summary>
         public void ToonKnoppen()
         {
             if (userInstellingen.abc1Niveau>0)
