@@ -73,8 +73,20 @@ namespace Droomjacht
                 string[] lines = data.Split(',');
                 switch (lines[0])
                 {
-                    case "property":
-                        user.property = Int32.Parse(lines[1]);
+                    case "sterPunten":
+                        user.sterPunten = Int32.Parse(lines[1]);
+                        break;
+                    case "abc1Niveau":
+                        user.abc1Niveau = Int32.Parse(lines[1]);
+                        break;
+                    case "abc1Punten":
+                        user.abc1Punten = Int32.Parse(lines[1]);
+                        break;
+                    case "reken1Niveau":
+                        user.reken1Niveau = Int32.Parse(lines[1]);
+                        break;
+                    case "reken1Punten":
+                        user.reken1Punten = Int32.Parse(lines[1]);
                         break;
                 }
                 data = sr.ReadLine();
@@ -118,13 +130,17 @@ namespace Droomjacht
             {
                 Instellingen userInstellingen = new Instellingen(user);
                 userInstellingen = LoadSettings(user);
-                Beginscherm.Beginscherm beginScherm= new Beginscherm.Beginscherm(userInstellingen);
-                beginScherm.ShowDialog();
-                this.Close();
+                Beginscherm.Beginscherm beginScherm = new Beginscherm.Beginscherm(userInstellingen);
+                this.Hide();
+                beginScherm.Closed += (s, args) => this.Close();
+                beginScherm.Show();
             }
             else
             {
-                //nieuwe gebruiker nog todo
+                var nieuweGebruikerScherm = new NieuweGebruiker();
+                this.Hide();
+                nieuweGebruikerScherm.Closed += (s, args) => this.Close();
+                nieuweGebruikerScherm.Show();
             }
         }        
     }

@@ -23,6 +23,7 @@ namespace Droomjacht.abc
         {
             InitializeComponent();
             userInstellingen = user;
+            ToonKnoppen();
         }
 
         private Instellingen userInstellingen = new Instellingen("");
@@ -30,8 +31,20 @@ namespace Droomjacht.abc
         private void letterSpelKnop_Click(object sender, EventArgs e)
         {
             AbcLetterScherm scherm = new AbcLetterScherm(userInstellingen);
-            scherm.ShowDialog();
-            this.Close();
+            this.Hide();
+            scherm.Closed += (s, args) => this.Close();
+            scherm.Show();
+        }
+        public void ToonKnoppen()
+        {
+            if (userInstellingen.abc1Niveau>0)
+            {
+                letterSpelKnop.Visible = true;
+            }
+            else
+            {
+                letterSpelKnop.Visible = false;
+            }
         }
     }
 }

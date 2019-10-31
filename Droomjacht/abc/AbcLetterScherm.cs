@@ -1,4 +1,5 @@
-﻿using Droomjacht.Properties;
+﻿using Droomjacht.Event;
+using Droomjacht.Properties;
 using Droomjacht.User;
 using System;
 using System.Collections.Generic;
@@ -23,39 +24,55 @@ namespace Droomjacht.abc
         {
             InitializeComponent();
             userInstellingen = user;
+            VulLetterVraag();
         }
 
         private Instellingen userInstellingen = new Instellingen("");
 
         public void VulLetterVraag()
         {
-
             Random juisteAntwoord = new Random();
             int knopKeuze = juisteAntwoord.Next(1, 4);
-            string knopAntwoord1 = RandomString(1);
-            string knopAntwoord2 = RandomString(1);
-            string knopAntwoord3 = RandomString(1);
-            string vraag = RandomString(1);
+            string knopAntwoord1 = RandomString(1, userInstellingen.abc1Niveau);
+            string knopAntwoord2 = RandomString(1, userInstellingen.abc1Niveau);
+            string knopAntwoord3 = RandomString(1, userInstellingen.abc1Niveau);
+            string vraag = RandomString(1, userInstellingen.abc1Niveau);
             //check of 1 of meerdere antwoorden overeenkomen
             while (knopAntwoord1 == vraag)
-                knopAntwoord1 = RandomString(1);
+                knopAntwoord1 = RandomString(1, userInstellingen.abc1Niveau);
             while (knopAntwoord2 == vraag || knopAntwoord2 == knopAntwoord1)
-                knopAntwoord2 = RandomString(1);
+                knopAntwoord2 = RandomString(1, userInstellingen.abc1Niveau);
             while (knopAntwoord3 == vraag || knopAntwoord3 == knopAntwoord1 || knopAntwoord3 == knopAntwoord2)
-                knopAntwoord3 = RandomString(1);
+                knopAntwoord3 = RandomString(1, userInstellingen.abc1Niveau);
             switch (knopKeuze)
             {
                 case 1:
-                    knopAntwoord1 = vraag;
+                    if (userInstellingen.abc1Niveau == 4)
+                    {
+                        knopAntwoord1 = vraag.ToLower();
+                        vraag = vraag.ToUpper();
+                    }
+                    else { knopAntwoord1 = vraag; }
                     break;
                 case 2:
-                    knopAntwoord2 = vraag;
+                    if (userInstellingen.abc1Niveau == 4)
+                    {
+                        knopAntwoord2 = vraag.ToLower();
+                        vraag = vraag.ToUpper();
+                    }
+                    else
+                    { knopAntwoord2 = vraag; }
                     break;
                 default:
-                    knopAntwoord3 = vraag;
+                    if (userInstellingen.abc1Niveau == 4)
+                    {
+                        knopAntwoord3 = vraag.ToLower();
+                        vraag = vraag.ToUpper();
+                    }
+                    else
+                    { knopAntwoord3 = vraag; }
                     break;
             }
-
             letterWolk.Text = vraag;
             VeranderKleurWolk();
             this.knopAntwoord1.Text = knopAntwoord1;
@@ -65,10 +82,22 @@ namespace Droomjacht.abc
 
         public bool ControleerAntwoord(string antwoord)
         {
-            if (antwoord == letterWolk.Text)
+            if (antwoord.ToLower() == letterWolk.Text.ToLower())
+            {
+                userInstellingen.abc1Punten++;
+                userInstellingen.sterPunten++;
+                userInstellingen.SaveInstellingen();
                 return true;
+            }
             else
+            {
+                if (userInstellingen.abc1Punten > 0)
+                {
+                    userInstellingen.abc1Punten--;
+                    userInstellingen.SaveInstellingen();
+                }                
                 return false;
+            }
         }
 
         public void VeranderKleurWolk(bool antwoordJuist, string knop)
@@ -87,7 +116,6 @@ namespace Droomjacht.abc
                         knopAntwoord3.BackgroundImage = Resources.wolkGroen;
                         break;
                 }
-
             }
             else
             {
@@ -118,7 +146,23 @@ namespace Droomjacht.abc
             VeranderKleurWolk(antwoord, "knopAntwoord1");
             this.Refresh();
             System.Threading.Thread.Sleep(2000);
-            if (antwoord) VulLetterVraag();
+            if (antwoord)
+            {
+                if (!userInstellingen.SpeelEvent())
+                {
+                    AbcLetterScherm child = new AbcLetterScherm(userInstellingen);
+                    this.Hide();
+                    child.Closed += (s, args) => this.Close();
+                    child.ShowDialog();
+                }
+                else
+                {
+                    EventInSpel eventScherm = new EventInSpel(userInstellingen);
+                    this.Hide();
+                    eventScherm.Closed += (s, args) => this.Close();
+                    eventScherm.Show();
+                }
+            }
         }
 
         private void knopAntwoord2_Click(object sender, EventArgs e)
@@ -127,7 +171,23 @@ namespace Droomjacht.abc
             VeranderKleurWolk(antwoord, "knopAntwoord2");
             this.Refresh();
             System.Threading.Thread.Sleep(2000);
-            if (antwoord) VulLetterVraag();
+            if (antwoord)
+            {
+                if (!userInstellingen.SpeelEvent())
+                {
+                    AbcLetterScherm child = new AbcLetterScherm(userInstellingen);
+                    this.Hide();
+                    child.Closed += (s, args) => this.Close();
+                    child.ShowDialog();
+                }
+                else
+                {
+                    EventInSpel eventScherm = new EventInSpel(userInstellingen);
+                    this.Hide();
+                    eventScherm.Closed += (s, args) => this.Close();
+                    eventScherm.Show();
+                }
+            }
         }
 
         private void knopAntwoord3_Click(object sender, EventArgs e)
@@ -136,13 +196,47 @@ namespace Droomjacht.abc
             VeranderKleurWolk(antwoord, "knopAntwoord3");
             this.Refresh();
             System.Threading.Thread.Sleep(2000);
-            if (antwoord) VulLetterVraag();
+            if (antwoord)
+            {
+                if (!userInstellingen.SpeelEvent())
+                {
+                    AbcLetterScherm child = new AbcLetterScherm(userInstellingen);
+                    this.Hide();
+                    child.Closed += (s, args) => this.Close();
+                    child.ShowDialog();
+                }
+                else
+                {
+                    EventInSpel eventScherm = new EventInSpel(userInstellingen);
+                    this.Hide();
+                    eventScherm.Closed += (s, args) => this.Close();
+                    eventScherm.Show();
+                }
+            }
         }
 
-        private static string RandomString(int length)
+        private static string RandomString(int length, int niveau)
         {
+            var chars = "";
+            switch (niveau)
+            {
+                case 1:
+                    chars = "bikmoprsv";
+                    break;
+                case 2:
+                    chars = "abdegijklmnoprstuvwz";
+                    break;
+                case 3:
+                    chars = "abcdefghijklmnopqrstuvwxyz";
+                    break;
+                case 4:
+                    chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                    break;
+                default:
+                    chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                    break;
+            }
             var rand = new Random();
-            const string chars = "abcdefghijklmnopqrstuvwxyz";
             return new string(Enumerable.Repeat(chars, length)
               .Select(s => s[rand.Next(s.Length)]).ToArray());
         }

@@ -1,1 +1,5 @@
-property,1
+sterPunten,280
+abc1Niveau,3
+abc1Punten,54
+reken1Niveau,7
+reken1Punten,219

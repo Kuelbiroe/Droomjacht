@@ -24,6 +24,7 @@ namespace Droomjacht.Rekenen
         {
             InitializeComponent();
             userInstellingen = user;
+            ToonKnoppen();
         }
 
         private Instellingen userInstellingen = new Instellingen("");
@@ -31,17 +32,20 @@ namespace Droomjacht.Rekenen
         private void tekenWolk_Click(object sender, EventArgs e)
         {
             Reken.Rekenen rekenscherm = new Reken.Rekenen(userInstellingen);
-            //input vanuit niveau regelen...
-            rekenscherm.getal1Class = 5;
-            rekenscherm.getal2Class = 5;
-            rekenscherm.somClass = 10;
-            rekenscherm.tekenClass = "+";
-            rekenscherm.typeSomClass = "=";
-
-            rekenscherm.MaakEenSom();
-            rekenscherm.ShowMyImage();
-            rekenscherm.ShowDialog();
-            this.Close();
+            this.Hide();
+            rekenscherm.Closed += (s, args) => this.Close();
+            rekenscherm.Show();
+        }
+        public void ToonKnoppen()
+        {
+            if (userInstellingen.reken1Niveau > 0)
+            {
+                tekenWolk.Visible = true;
+            }
+            else
+            {
+                tekenWolk.Visible = false;
+            }
         }
     }
 }

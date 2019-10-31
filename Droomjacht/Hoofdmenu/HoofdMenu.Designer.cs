@@ -33,6 +33,7 @@ namespace Droomjacht
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
+            this.ster = new System.Windows.Forms.Button();
             this.avatar = new System.Windows.Forms.Button();
             this.oranjeKnop = new System.Windows.Forms.Button();
             this.groeneKnop = new System.Windows.Forms.Button();
@@ -41,6 +42,27 @@ namespace Droomjacht
             this.abcKnop = new System.Windows.Forms.Button();
             this.RekenKnop = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // ster
+            // 
+            this.ster.BackColor = System.Drawing.Color.Transparent;
+            this.ster.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ster.BackgroundImage")));
+            this.ster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ster.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ster.FlatAppearance.BorderSize = 0;
+            this.ster.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ster.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ster.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ster.Location = new System.Drawing.Point(1333, 11);
+            this.ster.Margin = new System.Windows.Forms.Padding(2);
+            this.ster.Name = "ster";
+            this.ster.Size = new System.Drawing.Size(276, 276);
+            this.ster.TabIndex = 9;
+            this.ster.TabStop = false;
+            this.ster.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.ster.UseMnemonic = false;
+            this.ster.UseVisualStyleBackColor = false;
             // 
             // avatar
             // 
@@ -205,7 +227,8 @@ namespace Droomjacht
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1400, 634);
+            this.ClientSize = new System.Drawing.Size(1640, 634);
+            this.Controls.Add(this.ster);
             this.Controls.Add(this.avatar);
             this.Controls.Add(this.oranjeKnop);
             this.Controls.Add(this.groeneKnop);
@@ -230,6 +253,7 @@ namespace Droomjacht
         private System.Windows.Forms.Button groeneKnop;
         private System.Windows.Forms.Button oranjeKnop;
         private System.Windows.Forms.Button avatar;
+        private System.Windows.Forms.Button ster;
     }
 }
 
